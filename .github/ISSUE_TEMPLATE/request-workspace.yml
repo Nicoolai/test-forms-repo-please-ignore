@@ -1,0 +1,55 @@
+name: Request Workspace
+description: Request an API Management workspace
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Instructions for you, the requestor
+
+        We have tried to make this form as simple as possible, for you, to fill out.  
+        Unfortunately we do need some information and we do have some rules.
+
+        **Use camel-case for your workspace name.** If you are not familiar with camel-case, the essence is that you capitalize all words, except for the first one, and remove all spaces.  
+        Examples could be:
+
+        **NOT camel-case**
+        * my workspace
+        * my_workspace
+        * MYWORKSPACE
+        * my-workspace
+
+        **GREAT camel-case**
+        * myWorkspace
+        * someReallyLongNameThatProbablyNeverWillMakeSenseToUse
+
+        ## What is in a name
+
+        The workspace name is for you. APIs deployed into the workspace does not have to utilize the workspace name for anything. You will not be forced to include your workspace name in the path of any APIs.
+        
+        ---
+  - type: input
+    id: owner
+    attributes:
+      label: Owning user
+      description: "This could be yourself or someone else. Format should be your email. You will be able to add more admins yourself."
+      placeholder: "Firstname.Lastname@domain.com"
+    validations:
+      required: true  
+  - type: input
+    id: workspaceName
+    attributes:
+      label: Workspace Name
+      description: "In camelCase please. A name that makes sense for your use-case. Your APIs does not have to reflect the name of your workspace in their paths."
+      placeholder: "someGreatProductWorkspace"
+    validations:
+      required: true
+  - type: checkboxes
+    id: environments
+    attributes:
+      label: Environments
+      description: Chose the environments you need your workspace to be on.
+      options:
+        - label: Quality Assurance
+          required: false
+        - label: Production
+          required: false
