@@ -1,5 +1,7 @@
 name: Request Workspace
 description: Request an API Management workspace
+title: "I would like a workspace please"
+labels: ["Workspace Request"]
 body:
   - type: markdown
     attributes:
