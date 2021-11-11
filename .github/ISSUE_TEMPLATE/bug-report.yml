@@ -1,13 +1,40 @@
-name: Sample form
-description: Create an issue. 
-title: "[Bug]: "
-labels: [bug]
+name: Bug
+description: Report an issue or bug.
 body:
-  - type: input
-    id: sample-input
+  - type: markdown
     attributes:
-      label: Sample Input
-      description: Write text here.
-      placeholder: Here will be text
+      value: |
+        Before opening a bug report, please search for the behaviour in the existing issues. 
+        
+        ---
+        
+        Thank you for taking the time to file a bug report. To address this bug as fast as possible, we need some information.
+  - type: dropdown
+    id: location
+    attributes:
+      label: Environment
+      description: On which environment did you experience the issue?
+      options:
+        - Quality Assurance
+        - Production
+        - Somewhere else or not applicable (please specify in the description)
     validations:
       required: true
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Bug description
+      description: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Which steps do we need to take to reproduce this error?
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: If applicable, provide relevant log output. No need for backticks here.
+      render: shell
